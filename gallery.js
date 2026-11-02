@@ -15,7 +15,8 @@
   const moreBtn = document.getElementById('galleryMore');
   const countEl = document.getElementById('galleryCount');
   if (!root) return;
-  let items = [], shown = 0, cur = 0;
+  let items = [], shown = 0, cur = 0, failed = 0;
+  const updateCount = () => { if (countEl) countEl.textContent = `SHOWING ${shown - failed} OF ${items.length - failed} PROJECTS`; };
 
   const num = f => parseInt((f.match(/(\d+)/) || [0, 0])[1], 10);
   const meta = f => {
@@ -49,12 +50,17 @@
       fig.className = 'g-item'; fig.tabIndex = 0;
       fig.innerHTML = `<img src="${DIR}/${encodeURIComponent(it.file)}" alt="${it.title}" loading="lazy" decoding="async">
         <figcaption class="g-cap"><small>${it.cat.toUpperCase()}</small><strong>${it.title}</strong><b>↗</b></figcaption>`;
+      const im = fig.querySelector('img');
+      im.addEventListener('error', () => {          // file listed in repo but cannot be displayed -> hide it
+        console.warn('Gallery: could not load', it.file);
+        fig.remove(); failed++; updateCount();
+      });
       fig.addEventListener('click', () => open(i));
       fig.addEventListener('keydown', e => { if (e.key === 'Enter') open(i); });
       root.appendChild(fig); io.observe(fig);
     }
     shown = end;
-    if (countEl) countEl.textContent = `SHOWING ${shown} OF ${items.length} PROJECTS`;
+    updateCount();
     if (moreBtn) moreBtn.style.display = shown >= items.length ? 'none' : '';
   }
 
