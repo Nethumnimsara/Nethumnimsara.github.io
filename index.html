@@ -13,6 +13,7 @@
   <link rel="apple-touch-icon" href="assets/profile-favicon.png">
   <link rel="preconnect" href="https://cdn.simpleicons.org">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="gallery.css">
 </head>
 <body>
   <div id="loader"><div class="loader-mark">N</div><strong>NETHUM</strong><div class="loader-line"><i></i></div></div>
@@ -61,9 +62,14 @@
       <div class="service reveal"><span>06</span><h3>Photography</h3><p>Creative photography and visual content.</p><b>↗</b></div>
     </div></section>
 
-    <section class="section projects" id="projects"><div class="section-head reveal"><span>05 / SELECTED WORK</span><h2>Things I've <em>built.</em></h2></div><p class="section-note reveal">Two featured FlexGen projects are live below. New work will be added as it becomes ready.</p><div class="project-grid two-projects" id="projectGrid">
-      <article class="project reveal" data-title="FlexGen Screen Recorder" data-desc="A desktop screen recording and screenshot application developed as part of the FlexGen software ecosystem." data-tech="Desktop · Screen Capture · Recording" data-img="assets/projects/project-1.png"><div class="project-img"><img src="assets/projects/project-1.png" alt="FlexGen Screen Recorder project" loading="lazy"></div><div class="project-meta"><span>PROJECT 01 · SOFTWARE</span><h3>FlexGen Screen Recorder</h3><p>Screen recording & screenshot application.</p><button class="open-project">View project ↗</button></div></article>
-      <article class="project reveal" data-title="FlexGen Video Editor" data-desc="A video editing application developed as part of the FlexGen software ecosystem." data-tech="Video · Editing · Desktop" data-img="assets/projects/project-2.png"><div class="project-img"><img src="assets/projects/project-2.png" alt="FlexGen Video Editor project" loading="lazy"></div><div class="project-meta"><span>PROJECT 02 · SOFTWARE</span><h3>FlexGen Video Editor</h3><p>Video editing application.</p><button class="open-project">View project ↗</button></div></article></div><div class="coming reveal"><span>+</span><div><strong>COMING SOON — NEW PROJECTS</strong><p>More software, game, design and photography work will appear here.</p></div></div></section>
+    <section class="section projects" id="projects"><div class="section-head reveal"><span>05 / SELECTED WORK</span><h2>Things I've <em>built.</em></h2></div><p class="section-note reveal">Software, design and creative projects. Click any project to view it in full size.</p>
+
+      <!-- Auto gallery: every image inside assets/projects/ appears here automatically -->
+      <div class="gallery" id="gallery"></div>
+      <button class="btn primary g-more" id="galleryMore">Load more ↓</button>
+      <div class="g-count" id="galleryCount"></div>
+
+      <div class="coming reveal"><span>+</span><div><strong>COMING SOON — NEW PROJECTS</strong><p>More software, game, design and photography work will appear here.</p></div></div></section>
 
     <section class="section flexgen" id="flexgen"><div class="company-card reveal"><div class="company-copy"><div class="eyebrow"><span class="pulse"></span> COMPANY / FLEXGEN</div><img class="flex-logo" src="assets/flexgen-logo.png" alt="FlexGen logo"><h2>FlexGen <em>PVT LTD</em></h2><p>A software and game development company focused on building useful digital products, applications and interactive experiences.</p><div class="role-pill">CEO</div></div><div class="company-gallery"><img src="assets/flexgen-1.png" alt="FlexGen project screenshot" loading="lazy"><img src="assets/flexgen-2.png" alt="FlexGen project screenshot" loading="lazy"><img src="assets/flexgen-3.jpg" alt="FlexGen project screenshot" loading="lazy"></div></div></section>
 
@@ -105,5 +111,6 @@
 
   <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-card"><button class="modal-close" id="modalClose" aria-label="Close project">×</button><div class="modal-image" id="modalImage"></div><div class="modal-copy"><span id="modalCat"></span><h2 id="modalTitle"></h2><p id="modalDesc"></p><strong id="modalTech"></strong></div></div></div>
   <script src="script.js"></script>
+  <script src="gallery.js"></script>
 </body>
 </html>
